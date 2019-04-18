@@ -54,6 +54,23 @@ expected_hash:
       - apt-get update && apt-get install -y cron locales-all net-tools wget systemd-sysv gnupg
       roles:
       - agent
+    debian10-64-1:
+      pe_dir:
+      pe_ver:
+      pe_upgrade_dir:
+      pe_upgrade_ver:
+      hypervisor: docker
+      docker_cmd:
+      - /sbin/init
+      image: debian:10
+      platform: debian-10-amd64
+      packaging_platform: debian-10-amd64
+      docker_image_commands:
+      - cp /bin/true /sbin/agetty
+      - rm -f /usr/sbin/policy-rc.d
+      - apt-get update && apt-get install -y cron locales-all net-tools wget systemd-sysv gnupg
+      roles:
+      - agent
     ubuntu1804-64-1:
       pe_dir:
       pe_ver:
